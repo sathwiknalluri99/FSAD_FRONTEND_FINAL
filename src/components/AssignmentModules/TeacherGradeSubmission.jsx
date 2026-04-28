@@ -27,7 +27,7 @@ export default function TeacherGradeSubmission({ assignmentId, teacherId, onClos
   const fetchAssignmentAndSubmissions = async () => {
     try {
       // Fetch assignment
-      const assignmentRes = await fetch(`http://localhost:8085/api/assignments/${assignmentId}`, {
+      const assignmentRes = await fetch(`http://localhost:8086/api/assignments/${assignmentId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -39,7 +39,7 @@ export default function TeacherGradeSubmission({ assignmentId, teacherId, onClos
 
       // Fetch submissions
       const submissionsRes = await fetch(
-        `http://localhost:8085/api/assignments/${assignmentId}/submissions`,
+        `http://localhost:8086/api/assignments/${assignmentId}/submissions`,
         {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -90,7 +90,7 @@ export default function TeacherGradeSubmission({ assignmentId, teacherId, onClos
 
     try {
       const response = await fetch(
-        `http://localhost:8085/api/assignments/submissions/${selectedSubmission.id}/grade`,
+        `http://localhost:8086/api/assignments/submissions/${selectedSubmission.id}/grade`,
         {
           method: 'PUT',
           headers: {

@@ -169,7 +169,7 @@ export default function CreateAssignmentModal({ isOpen, onClose, courseId, onSuc
     console.log('========================')
 
     try {
-      const response = await fetch('http://localhost:8085/api/assignments/create', {
+      const response = await fetch('http://localhost:8086/api/assignments/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

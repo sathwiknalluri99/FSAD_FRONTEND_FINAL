@@ -26,7 +26,7 @@ export default function StudentAssignmentSubmission({ assignmentId, studentId, s
 
   const fetchAssignmentDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:8085/api/assignments/${assignmentId}`, {
+      const response = await fetch(`http://localhost:8086/api/assignments/${assignmentId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -45,7 +45,7 @@ export default function StudentAssignmentSubmission({ assignmentId, studentId, s
   const fetchMySubmission = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8085/api/assignments/${assignmentId}/my-submission/${studentId}`,
+        `http://localhost:8086/api/assignments/${assignmentId}/my-submission/${studentId}`,
         {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -76,7 +76,7 @@ export default function StudentAssignmentSubmission({ assignmentId, studentId, s
 
     try {
       const response = await fetch(
-        `http://localhost:8085/api/assignments/${assignmentId}/submit`,
+        `http://localhost:8086/api/assignments/${assignmentId}/submit`,
         {
           method: 'POST',
           headers: {

@@ -1,26 +1,21 @@
 // components/Pages/Layout.jsx
+// This component is no longer used as routing is now handled in App.jsx
+// Keeping for reference only
+
 import React from "react";
 import Sidebar from "../Sidebar";
 import Header from "../Header";
-import MainContent from "../MainContent";
 
-export default function Layout({ user, onLogout, activePage, setActivePage }) {
+export default function Layout({ user, onLogout }) {
   return (
     <div className="dashboard-container">
-      
-      {/* Sidebar */}
-      <Sidebar
-        user={user}
-        activePage={activePage}
-        setActivePage={setActivePage}
-      />
-
-      {/* Right side */}
+      <Sidebar user={user} />
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <Header user={user} onLogout={onLogout} />
-        <MainContent activePage={activePage} user={user} setActivePage={setActivePage} />
+        <div style={{ flex: 1, padding: "20px" }}>
+          {/* Content will be rendered by Router */}
+        </div>
       </div>
-
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function StudentCourseRegister() {
 
   const fetchCourses = async () => {
     try {
-      const response = await fetch("http://localhost:8085/api/courses", {
+      const response = await fetch("http://localhost:8086/api/courses", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -69,7 +69,7 @@ export default function StudentCourseRegister() {
   const handleRegister = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8085/api/enrollments/register/${selectedCourse.id}`,
+        `http://localhost:8086/api/enrollments/register/${selectedCourse.id}`,
         {
           method: "POST",
           headers: {

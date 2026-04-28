@@ -29,7 +29,7 @@ const FacultyPage = () => {
   const loadFaculty = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8085/api/admin/students/teachers', {
+      const response = await fetch('http://localhost:8086/api/admin/students/teachers', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -97,7 +97,7 @@ const FacultyPage = () => {
         qualification: formData.qualification
       };
 
-      const response = await fetch('http://localhost:8085/api/admin/students/teachers/create', {
+      const response = await fetch('http://localhost:8086/api/admin/students/teachers/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ const FacultyPage = () => {
         active: formData.active
       };
 
-      const response = await fetch(`http://localhost:8085/api/admin/students/teachers/${selectedFaculty.id}`, {
+      const response = await fetch(`http://localhost:8086/api/admin/students/teachers/${selectedFaculty.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -192,7 +192,7 @@ const FacultyPage = () => {
   // Confirm delete faculty - Delete from database
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8085/api/admin/students/teachers/${selectedFaculty.id}`, {
+      const response = await fetch(`http://localhost:8086/api/admin/students/teachers/${selectedFaculty.id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

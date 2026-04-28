@@ -16,7 +16,7 @@ export default function AdminDashboard({ user }) {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch("http://localhost:8085/api/dashboard/admin/stats", {
+      const response = await fetch("http://localhost:8086/api/dashboard/admin/stats", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

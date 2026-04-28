@@ -1,6 +1,6 @@
 // API service for handling backend operations with MySQL database
 
-const API_BASE = "http://localhost:8085/api";
+const API_BASE = "http://localhost:8086/api";
 
 // Simple network helpers
 const networkPost = async (path, payload) => {

@@ -36,7 +36,7 @@ export default function GradesPage() {
 
   const fetchCGPA = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8085/api/grades/cgpa/${id}`, {
+      const response = await fetch(`http://localhost:8086/api/grades/cgpa/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -52,7 +52,7 @@ export default function GradesPage() {
 
   const fetchGrades = async () => {
     try {
-      const response = await fetch("http://localhost:8085/api/grades/my-grades", {
+      const response = await fetch("http://localhost:8086/api/grades/my-grades", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -68,7 +68,7 @@ export default function GradesPage() {
 
   const fetchTranscript = async () => {
     try {
-      const response = await fetch("http://localhost:8085/api/grades/transcript", {
+      const response = await fetch("http://localhost:8086/api/grades/transcript", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

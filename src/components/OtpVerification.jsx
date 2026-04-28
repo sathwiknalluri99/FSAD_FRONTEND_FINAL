@@ -28,7 +28,7 @@ export default function OtpVerification({ email, onVerified, onCancel }) {
     setMessage({ text: "", type: "" });
 
     try {
-      const response = await fetch("http://localhost:8085/api/auth/verify-otp", {
+      const response = await fetch("http://localhost:8086/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp })
@@ -56,7 +56,7 @@ export default function OtpVerification({ email, onVerified, onCancel }) {
     setMessage({ text: "", type: "" });
 
     try {
-      const response = await fetch("http://localhost:8085/api/auth/resend-otp", {
+      const response = await fetch("http://localhost:8086/api/auth/resend-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })

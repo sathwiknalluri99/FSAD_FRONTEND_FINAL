@@ -80,7 +80,7 @@ const SchedulePage = ({ user }) => {
   const fetchAndSyncSchedule = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8085/api/enrollments/my-courses", {
+      const response = await fetch("http://localhost:8086/api/enrollments/my-courses", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -365,7 +365,7 @@ const SchedulePage = ({ user }) => {
             <h2>
               <i className="fa-solid fa-calendar-alt"></i> Academic Calendar
             </h2>
-            <p>October 2023</p>
+            <p>2023-24 Academic Year</p>
           </div>
           <div className="legend">
             <span><i className="fa-circle" style={{color: '#FF6B6B'}}></i> Exams</span>
@@ -397,7 +397,7 @@ const SchedulePage = ({ user }) => {
           <button className="btn-prev">
             <i className="fa-solid fa-chevron-left"></i> Previous
           </button>
-          <span className="current-month">October 2023</span>
+          <span className="current-month">Current Month</span>
           <button className="btn-next">
             Next <i className="fa-solid fa-chevron-right"></i>
           </button>

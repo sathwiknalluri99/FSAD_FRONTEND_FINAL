@@ -32,7 +32,7 @@ const CoursesPage = ({ user }) => {
       setLoading(true);
       setError(null);
       // Fetch from database API endpoint
-      const response = await fetch('http://localhost:8085/api/courses', {
+      const response = await fetch('http://localhost:8086/api/courses', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -105,11 +105,11 @@ const CoursesPage = ({ user }) => {
         credits: parseInt(formData.credits) || 3,
         capacity: parseInt(formData.capacity) || 0,
         description: formData.description,
-        semester: 'Spring'
+        semester: 'Semester 2'
       };
 
       // POST to backend API
-      const response = await fetch('http://localhost:8085/api/courses', {
+      const response = await fetch('http://localhost:8086/api/courses', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -180,7 +180,7 @@ const CoursesPage = ({ user }) => {
         credits: parseInt(formData.credits) || 3,
         capacity: parseInt(formData.capacity) || 0,
         description: formData.description,
-        semester: 'Spring'
+        semester: 'Semester 2'
       };
 
       // PUT to backend API

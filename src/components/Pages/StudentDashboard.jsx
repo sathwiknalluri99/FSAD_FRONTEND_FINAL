@@ -35,7 +35,7 @@ export default function StudentDashboard({ user }) {
       }
 
       // Fetch enrolled courses
-      const response = await fetch("http://localhost:8085/api/enrollments/my-courses", {
+      const response = await fetch("http://localhost:8086/api/enrollments/my-courses", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

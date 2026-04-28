@@ -33,7 +33,7 @@ export default function TeacherDashboard({ user, setActivePage }) {
   const fetchTeacherData = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:8085/api/dashboard/teacher/courses/${user.username}`, {
+      const res = await fetch(`http://localhost:8086/api/dashboard/teacher/courses/${user.username}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -62,7 +62,7 @@ export default function TeacherDashboard({ user, setActivePage }) {
 
   const fetchStudents = async () => {
     try {
-      const res = await fetch(`http://localhost:8085/api/dashboard/teacher/students/${user.username}`, {
+      const res = await fetch(`http://localhost:8086/api/dashboard/teacher/students/${user.username}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -199,50 +199,50 @@ export default function TeacherDashboard({ user, setActivePage }) {
       {/* Daily Statistics */}
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-icon" style={{ backgroundColor: "#4CAF50" }}>
+          <div className="stat-icon" style={{ backgroundColor: "#EEF2FF", color: "#4CAF50" }}>
             <i className="fa-solid fa-calendar-check"></i>
           </div>
-          <div className="stat-content">
+          <div className="stat-info">
             <h3>{dailyStats.classesScheduled}</h3>
             <p>Classes Scheduled</p>
           </div>
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ backgroundColor: "#2196F3" }}>
+          <div className="stat-icon" style={{ backgroundColor: "#EEF2FF", color: "#2196F3" }}>
             <i className="fa-solid fa-users"></i>
           </div>
-          <div className="stat-content">
+          <div className="stat-info">
             <h3>{dailyStats.studentsAssigned}</h3>
             <p>Students Assigned</p>
           </div>
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ backgroundColor: "#FF9800" }}>
+          <div className="stat-icon" style={{ backgroundColor: "#EEF2FF", color: "#FF9800" }}>
             <i className="fa-solid fa-tasks"></i>
           </div>
-          <div className="stat-content">
+          <div className="stat-info">
             <h3>{dailyStats.assignmentsPending}</h3>
             <p>Pending Assignments</p>
           </div>
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ backgroundColor: "#9C27B0" }}>
+          <div className="stat-icon" style={{ backgroundColor: "#EEF2FF", color: "#9C27B0" }}>
             <i className="fa-solid fa-star"></i>
           </div>
-          <div className="stat-content">
+          <div className="stat-info">
             <h3>{dailyStats.avgPerformance}%</h3>
             <p>Class Average</p>
           </div>
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ backgroundColor: "#3f51b5" }}>
+          <div className="stat-icon" style={{ backgroundColor: "#EEF2FF", color: "#3f51b5" }}>
             <i className="fa-solid fa-file-alt"></i>
           </div>
-          <div className="stat-content">
+          <div className="stat-info">
             <h3>{assignments.length}</h3>
             <p>Assignments Created</p>
           </div>

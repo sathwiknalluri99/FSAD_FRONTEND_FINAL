@@ -23,7 +23,7 @@ export default function StudentEnrolledCourses() {
 
   const fetchEnrollments = async () => {
     try {
-      const response = await fetch("http://localhost:8085/api/enrollments/my-courses", {
+      const response = await fetch("http://localhost:8086/api/enrollments/my-courses", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -42,7 +42,7 @@ export default function StudentEnrolledCourses() {
 
   const fetchGrades = async () => {
     try {
-      const response = await fetch("http://localhost:8085/api/grades/my-grades", {
+      const response = await fetch("http://localhost:8086/api/grades/my-grades", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -58,7 +58,7 @@ export default function StudentEnrolledCourses() {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch("http://localhost:8085/api/enrollments/statistics", {
+      const response = await fetch("http://localhost:8086/api/enrollments/statistics", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -72,6 +72,23 @@ export default function StudentEnrolledCourses() {
     }
   };
 
+  // Recalculate stats locally whenever enrollments change to ensure they reflect the table
+  useEffect(() => {
+    if (enrollments.length > 0) {
+      const total = enrollments.length;
+      const active = enrollments.filter(e => e.status === "ACTIVE").length;
+      const completed = enrollments.filter(e => e.status === "COMPLETED").length;
+      const dropped = enrollments.filter(e => e.status === "DROPPED").length;
+      
+      setStats({
+        totalEnrollments: total,
+        activeEnrollments: active,
+        completedCourses: completed,
+        droppedCourses: dropped
+      });
+    }
+  }, [enrollments]);
+
   const handleDropClick = (enrollmentId) => {
     setDroppingCourseId(enrollmentId);
     setShowDropModal(true);
@@ -80,7 +97,7 @@ export default function StudentEnrolledCourses() {
   const confirmDropCourse = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8085/api/enrollments/${droppingCourseId}/drop`,
+        `http://localhost:8086/api/enrollments/${droppingCourseId}/drop`,
         {
           method: "POST",
           headers: {

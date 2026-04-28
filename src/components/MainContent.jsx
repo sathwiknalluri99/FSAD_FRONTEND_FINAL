@@ -13,9 +13,6 @@ import StudentCourseRegister from "./Pages/StudentCourseRegister";
 import StudentEnrolledCourses from "./Pages/StudentEnrolledCourses";
 import GradesPage from "./Pages/GradesPage";
 import SchedulePage from "./Pages/SchedulePage";
-import FinancePage from "./Pages/FinancePage";
-import LibraryPage from "./Pages/LibraryPage";
-import ReportsPage from "./Pages/ReportsPage";
 import SettingsPage from "./Pages/SettingsPage";
 import AttendanceRegister from "./Pages/AttendanceRegister";
 import TeacherAttendancePage from "./Pages/TeacherAttendancePage";
@@ -49,9 +46,6 @@ export default function MainContent({ activePage, user, setActivePage }) {
       {activePage === "grades-page" && <GradesPage />}
       {activePage === "assignments-page" && (user?.role?.toLowerCase() === "teacher" ? <TeacherAssignmentsPage user={user} /> : <StudentAssignmentsPage user={user} />)}
       {activePage === "schedule-page" && <SchedulePage user={user} />}
-      {activePage === "finance-page" && <FinancePage />}
-      {activePage === "library-page" && <LibraryPage />}
-      {activePage === "reports-page" && <ReportsPage />}
       {activePage === "settings-page" && <SettingsPage user={user} />}
       {activePage === "attendance-page" && (
         user?.role?.toLowerCase() === "teacher" ? <TeacherAttendancePage user={user} /> : <AttendanceRegister user={user} />

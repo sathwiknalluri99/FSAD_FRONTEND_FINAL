@@ -10,7 +10,7 @@ export default function AdminCourseSyncPage() {
   const checkEmptyFields = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8085/api/courses/admin/check-empty-fields', {
+      const response = await fetch('http://localhost:8086/api/courses/admin/check-empty-fields', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -34,7 +34,7 @@ export default function AdminCourseSyncPage() {
   const handleSync = async () => {
     setSyncLoading(true);
     try {
-      const response = await fetch('http://localhost:8085/api/courses/sync', {
+      const response = await fetch('http://localhost:8086/api/courses/sync', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
