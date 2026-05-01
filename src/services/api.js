@@ -1,6 +1,9 @@
 // API service for handling backend operations with MySQL database
 
-const API_BASE = "http://localhost:8086/api";
+const API_BASE = (
+  import.meta.env.VITE_API_BASE_URL?.trim() ||
+  (import.meta.env.DEV ? "http://localhost:8086/api" : "/api")
+).replace(/\/$/, "");
 
 // Simple network helpers
 const networkPost = async (path, payload) => {
